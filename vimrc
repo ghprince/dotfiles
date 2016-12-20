@@ -5,8 +5,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
@@ -23,6 +23,13 @@ colorscheme base16-tomorrow-night
 
 autocmd BufWritePre *.lua %s/\s\+$//e
 
+" Centralized backup and swap files
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
+
+" Enable $ when changing content
+set cpoptions+=$
+
 set number
 set splitbelow
 set splitright
@@ -32,6 +39,9 @@ set shiftwidth=2
 set expandtab
 set hidden
 set colorcolumn=80
+set listchars=tab:»-,trail:·,nbsp:%,eol:¶,extends:>,precedes:<
+set nolist
+set path+=**
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#tabline#enabled = 1
@@ -42,6 +52,7 @@ let mapleader = "\<Space>"
 nmap <Leader>pf :GFiles<CR>
 nmap <Leader>ff :Files<CR>
 nmap <Leader>fed :vs ~/.vimrc<CR>
+autocmd BufWritePost .vimrc source $MYVIMRC
 nmap <Leader>feR :source ~/.vimrc<CR>
 
 " Search
