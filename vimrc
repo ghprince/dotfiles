@@ -16,15 +16,21 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'vim-scripts/SyntaxRange'
 call plug#end()
 
-colorscheme base16-tomorrow-night
+if filereadable(expand('~/.vimrc_background'))
+  let base16colorspace=256
+  source ~/.vimrc_background
+else
+  colorscheme base16-tomorrow-night
+endif
 
 autocmd BufWritePre *.lua %s/\s\+$//e
 
 " Centralized backup and swap files
+silent !mkdir -p ~/.vim/backup > /dev/null 2>&1
 set backupdir=~/.vim/backup//
+silent !mkdir -p ~/.vim/swap > /dev/null 2>&1
 set directory=~/.vim/swap//
 
 " Enable $ when changing content
