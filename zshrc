@@ -7,7 +7,7 @@ if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
   source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
 fi
 
-# Virtual Env
+# virtualenv for python
 venv() {
   if [[ -n ${VIRTUAL_ENV} ]]; then
     echo "%F{blue}("${VIRTUAL_ENV:t}") "
@@ -30,5 +30,8 @@ z() {
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
-# iTerm 2
+# iTerm2
 test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
