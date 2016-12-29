@@ -2,18 +2,21 @@
 # User configuration sourced by interactive shells
 #
 
+# Prompt configuration
+PROMPT_LEAN_TMUX=""
+PROMPT_LEAN_LEFT=prompt_venv
+
 # Source zim
 if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
   source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
 fi
 
 # virtualenv for python
-venv() {
+prompt_venv() {
   if [[ -n ${VIRTUAL_ENV} ]]; then
     echo "%F{blue}("${VIRTUAL_ENV:t}") "
   fi
 }
-PROMPT_LEAN_LEFT=venv
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
