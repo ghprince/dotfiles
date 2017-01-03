@@ -38,3 +38,9 @@ test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_in
 
 # rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# nvm
+if [[ -s "/usr/local/opt/nvm/nvm.sh" ]]; then 
+  export NVM_DIR="$HOME/.nvm"
+  source "/usr/local/opt/nvm/nvm.sh"
+fi
