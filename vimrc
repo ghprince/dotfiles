@@ -16,6 +16,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-sleuth'
+Plug 'pearofducks/ansible-vim'
 call plug#end()
 
 if filereadable(expand('~/.vimrc_background'))
@@ -72,6 +74,10 @@ nmap <Leader>bb :Buffers<CR>
 nmap <Leader>bn :bn<CR>
 nmap <Leader>bp :bp<CR>
 nmap <Leader><Tab> <C-^>
+
+" Tabs
+nmap <Leader>tn :tabnext<CR>
+nmap <Leader>tp :tabprevious<CR>
 
 " Windows
 nmap <Leader>wd <C-W>c<CR>
