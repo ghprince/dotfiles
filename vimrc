@@ -55,9 +55,14 @@ set colorcolumn=80
 set listchars=tab:»-,trail:·,nbsp:%,eol:¶,extends:>,precedes:<
 set nolist
 set path+=**
+
+" airline
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#tabline#enabled = 1
+
+" netrw
+let g:netrw_banner = 0
 
 let mapleader = "\<Space>"
 
