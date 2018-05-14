@@ -47,6 +47,9 @@ fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+# brew
+export PATH="/usr/local/sbin:$PATH"
+
 # nvm
 if [[ -s "/usr/local/opt/nvm/nvm.sh" ]]; then
   export NVM_DIR="$HOME/.nvm"
