@@ -19,24 +19,32 @@ prompt_venv() {
 }
 
 # fzf
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [[ -f ~/.fzf.zsh ]]; then
+  source ~/.fzf.zsh
+  [ -n "$NVIM_LISTEN_ADDRESS" ] && export FZF_DEFAULT_OPTS='--no-height'
+fi
 
 # Use fasd and fzf to implement z
-eval "$(fasd --init posix-alias zsh-hook)"
-unalias z
-z() {
-  local dir
-  dir="$(fasd -Rdl "$1" | fzf -1 -0 --no-sort +m)" && cd "${dir}" || return 1
-}
+if which fasd > /dev/null; then
+  eval "$(fasd --init posix-alias zsh-hook)"
+  unalias z
+  z() {
+    local dir
+    dir="$(fasd -Rdl "$1" | fzf -1 -0 --no-sort +m)" && cd "${dir}" || return 1
+  }
+fi
 
 # base16-shell
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # iTerm2
-test -e ${HOME}/.iterm2_shell_integration.zsh && source ${HOME}/.iterm2_shell_integration.zsh
+if [[ -e ${HOME}/.iterm2_shell_integration.zsh ]]; then
+  source ${HOME}/.iterm2_shell_integration.zsh
+fi
 
 # rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 # nvm
@@ -48,3 +56,10 @@ fi
 # alias
 ## bundler
 alias be='bundle exec'
+
+## timestamp
+alias tst="ts '[%H:%M:%S]'"
+
+if [ ${TMUX} ]; then
+  unset zle_bracketed_paste
+fi
