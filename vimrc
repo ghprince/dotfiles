@@ -99,6 +99,12 @@ vmap <Leader>cl :Commentary<CR>
 " Git
 nmap <Leader>gs :Gstatus<CR>
 
+" Terminal
+if has('nvim')
+  tnoremap <Esc> <C-\><C-n>
+  au TermOpen * setlocal nonumber norelativenumber
+endif
+
 " Emacs mode in Insert mode
 imap <C-A> <Esc>I
 imap <C-E> <Esc>A
