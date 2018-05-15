@@ -1,3 +1,7 @@
+" bye bye old good vi
+set nocompatible
+
+" vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -11,6 +15,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'gcmt/taboo.vim'
 Plug 'chriskempson/base16-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-commentary'
@@ -42,7 +47,6 @@ set directory=~/.vim/swap//
 
 " Enable $ when changing content
 set cpoptions+=$
-
 set number
 set splitbelow
 set splitright
@@ -60,6 +64,10 @@ set path+=**
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+
+" taboo
+let g:taboo_renamed_tab_format = " [%l(%p)]%m "
 
 " netrw
 let g:netrw_banner = 0
@@ -70,8 +78,9 @@ let mapleader = "\<Space>"
 nmap <Leader>pf :GFiles<CR>
 nmap <Leader>ff :Files<CR>
 nmap <Leader>fed :vs ~/.vimrc<CR>
-autocmd BufWritePost .vimrc source $MYVIMRC
+"autocmd BufWritePost .vimrc source $MYVIMRC
 nmap <Leader>feR :source ~/.vimrc<CR>
+nmap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Search
 nmap <silent> <Leader>sc :let @/=""<CR><C-L>
@@ -91,6 +100,10 @@ nmap <Leader>tp :tabprevious<CR>
 
 " Windows
 nmap <Leader>wd <C-W>c<CR>
+nnoremap <Left> :vertical resize -1<CR>
+nnoremap <Right> :vertical resize +1<CR>
+nnoremap <Up> :resize -1<CR>
+nnoremap <Down> :resize +1<CR>
 
 " Comments
 nmap <Leader>cl :Commentary<CR>
@@ -102,6 +115,7 @@ nmap <Leader>gs :Gstatus<CR>
 " Terminal
 if has('nvim')
   tnoremap <Esc> <C-\><C-n>
+  tnoremap <C-v><Esc> <Esc>
   au TermOpen * setlocal nonumber norelativenumber
 endif
 
