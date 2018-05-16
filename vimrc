@@ -23,6 +23,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sleuth'
 Plug 'pearofducks/ansible-vim'
+Plug 'Asheq/close-buffers.vim'
 call plug#end()
 
 if filereadable(expand('~/.vimrc_background'))
@@ -67,7 +68,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
 " taboo
-let g:taboo_renamed_tab_format = " [%l(%p)]%m "
+let g:taboo_tab_format = " %f%m(%P) "
+let g:taboo_renamed_tab_format = " [%l]%m(%P) "
 
 " netrw
 let g:netrw_banner = 0
@@ -92,6 +94,7 @@ nmap <Leader>bd :bd<CR>
 nmap <Leader>bb :Buffers<CR>
 nmap <Leader>bn :bn<CR>
 nmap <Leader>bp :bp<CR>
+nmap <Leader>bq :CloseBuffersMenu<CR>
 nmap <Leader><Tab> <C-^>
 
 " Tabs
