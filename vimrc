@@ -48,8 +48,8 @@ set directory=~/.vim/swap//
 " Enable $ when changing content
 set cpoptions+=$
 set number
-set splitbelow
-set splitright
+" set splitbelow
+" set splitright
 set hlsearch
 set tabstop=2
 set shiftwidth=2
