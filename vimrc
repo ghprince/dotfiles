@@ -77,43 +77,44 @@ let g:netrw_banner = 0
 let mapleader = "\<Space>"
 
 " Files
-nmap <Leader>pf :GFiles<CR>
-nmap <Leader>ff :Files<CR>
-nmap <Leader>fed :vs ~/.vimrc<CR>
+nnoremap <Leader>pf :GFiles<CR>
+nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>fed :vs ~/.vimrc<CR>
 "autocmd BufWritePost .vimrc source $MYVIMRC
-nmap <Leader>feR :source ~/.vimrc<CR>
-nmap <Leader>cd :cd %:p:h<CR>:pwd<CR>
+nnoremap <Leader>feR :source ~/.vimrc<CR>
+nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " Search
-nmap <silent> <Leader>sc :let @/=""<CR><C-L>
-nmap <Leader>/ :Ag <C-R>=expand("<cword>")<CR><CR>
-vmap <Leader>/ y:Ag <C-R>"<CR>
+nnoremap <silent> <Leader>sc :let @/=""<CR><C-L>
+nnoremap <Leader>/ :Ag <C-R>=expand("<cword>")<CR><CR>
+vnoremap <Leader>/ y:Ag <C-R>"<CR>
 
 " Buffers
-nmap <Leader>bd :bd<CR>
-nmap <Leader>bb :Buffers<CR>
-nmap <Leader>bn :bn<CR>
-nmap <Leader>bp :bp<CR>
-nmap <Leader>bq :CloseBuffersMenu<CR>
-nmap <Leader><Tab> <C-^>
+nnoremap <Leader>bd :bd<CR>
+nnoremap <Leader>bb :Buffers<CR>
+nnoremap <Leader>bn :bn<CR>
+nnoremap <Leader>bp :bp<CR>
+nnoremap <Leader>bq :CloseBuffersMenu<CR>
+nnoremap <Leader><Tab> <C-^>
 
 " Tabs
-nmap <Leader>tn :tabnext<CR>
-nmap <Leader>tp :tabprevious<CR>
+nnoremap <Leader>tn :tabnext<CR>
+nnoremap <Leader>tp :tabprevious<CR>
 
 " Windows
-nmap <Leader>wd <C-W>c<CR>
+nnoremap <Leader>wd <C-W>c<CR>
 nnoremap <Left> :vertical resize -1<CR>
 nnoremap <Right> :vertical resize +1<CR>
 nnoremap <Up> :resize -1<CR>
 nnoremap <Down> :resize +1<CR>
 
 " Comments
-nmap <Leader>cl :Commentary<CR>
-vmap <Leader>cl :Commentary<CR>
+nnoremap <Leader>cl :Commentary<CR>
+vnoremap <Leader>cl :Commentary<CR>
 
 " Git
-nmap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gg :GitGutter<CR>
 
 " Terminal
 if has('nvim')
@@ -123,11 +124,11 @@ if has('nvim')
 endif
 
 " Emacs mode in Insert mode
-imap <C-A> <Esc>I
-imap <C-E> <Esc>A
-imap <C-B> <Left>
-imap <C-F> <Right>
-" imap <C-P> <Up>
-" imap <C-N> <Down>
-imap <C-D> <Del>
+inoremap <C-A> <Esc>I
+inoremap <C-E> <Esc>A
+inoremap <C-B> <Left>
+inoremap <C-F> <Right>
+" inoremap <C-P> <Up>
+" inoremap <C-N> <Down>
+inoremap <C-D> <Del>
 inoremap <S-Tab> <C-D>
