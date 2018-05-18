@@ -62,6 +62,9 @@ alias be='bundle exec'
 
 ## timestamp
 alias tst="ts '[%H:%M:%S]'"
+if which nvr > /dev/null; then
+  alias vi="nvr"
+fi
 
 if [ ${TMUX} ]; then
   unset zle_bracketed_paste
