@@ -3,13 +3,11 @@
 #
 
 # Prompt configuration
-PROMPT_LEAN_TMUX=""
 PROMPT_LEAN_LEFT=prompt_venv
 
 # Source zim
-if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
-  source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
-fi
+export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
 # virtualenv for python
 prompt_venv() {
@@ -64,8 +62,4 @@ alias be='bundle exec'
 alias tst="ts '[%H:%M:%S]'"
 if which nvr > /dev/null; then
   alias vi="nvr"
-fi
-
-if [ ${TMUX} ]; then
-  unset zle_bracketed_paste
 fi

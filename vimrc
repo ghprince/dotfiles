@@ -116,13 +116,6 @@ vnoremap <Leader>cl :Commentary<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gg :GitGutter<CR>
 
-" Terminal
-if has('nvim')
-  tnoremap <Esc> <C-\><C-n>
-  tnoremap <C-v><Esc> <Esc>
-  au TermOpen * setlocal nonumber norelativenumber
-endif
-
 " Emacs mode in Insert mode
 inoremap <C-A> <Esc>I
 inoremap <C-E> <Esc>A
