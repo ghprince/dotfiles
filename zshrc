@@ -45,6 +45,11 @@ fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
+
 # brew
 export PATH="/usr/local/sbin:$PATH"
 
@@ -58,8 +63,3 @@ fi
 ## bundler
 alias be='bundle exec'
 
-## timestamp
-alias tst="ts '[%H:%M:%S]'"
-if which nvr > /dev/null; then
-  alias vi="nvr"
-fi
