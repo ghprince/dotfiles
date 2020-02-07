@@ -52,6 +52,7 @@ if command -v pyenv 1>/dev/null 2>&1; then eval "$(pyenv init -)"; fi
 
 # brew
 export PATH="/usr/local/sbin:$PATH"
+export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
 
 # nvm
 if [[ -s "/usr/local/opt/nvm/nvm.sh" ]]; then
